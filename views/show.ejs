@@ -1,0 +1,41 @@
+<%- include('./partials/header') %>
+
+<div class="banner">
+    <h3><%= item.nameOfClass %></h3>
+
+    <div class="banner-info">
+        <table class="table table-borderless" id="show-table">
+            <tbody>
+                <tr>
+                <th scope="row">Organiser:</th>
+                <td><%= item.orgName %></td>
+                </tr>
+                <tr>
+                    <th scope="row">Starting Date:</th>
+                    <td><%= item.startDate %></td>
+                </tr>
+                <tr>
+                    <th scope="row">No. of sessions:</th>
+                    <td><%= item.noOfSessions %></td>
+                </tr>
+                <tr>
+                    <th scope="row">Capacity:</th>
+                    <td>10/<%= item.capacity %></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="#" class="btn btn-primary">Book Now!</a>
+        <a href="/classes/<%= item.slug %>/<%= item._id %>/edit" class="btn btn-primary">Edit Class</a>
+    </div>
+
+</div>
+
+<div class="class-information">
+
+    <h4><i>Class Information</i></h4>
+    <%- include('./partials/class-information') %>
+
+</div>
+
+<%- include('./partials/footer') %>

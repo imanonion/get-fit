@@ -1,0 +1,156 @@
+<form method="POST" action="/classes/<%= item.slug %>/<%= item._id %>?_method=PATCH" container-fluid justify-content-start">
+
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+        
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                <strong>Organiser's information</strong>
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body">
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <label for="orgName" class="form-label">Organiser's Name</label>
+                            <input type="text" class="form-control" name="orgName" id="orgName" value="<%= item.orgName %>">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" id="email" value="<%= item.email %>">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="contact" class="form-label">Contact</label>
+                            <input type="tel" class="form-control" name="contact" id="contact" value="<%= item.contact %>">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+            <strong>Class information</strong>
+            </button>
+        </h2>
+        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+            <div class="accordion-body">
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="nameOfClass" class="form-label">Name of Class</label>
+                        <input type="text" class="form-control" name="nameOfClass" id="nameOfClass" value="<%= item.nameOfClass %>">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="genreOfExercise" class="form-label">Genre of Exercise</label>
+                        <input type="text" class="form-control" name="genreOfExercise" id="genreOfExercise" value="<%= item.genreOfExercise %>">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="noOfSessions" class="form-label">No. of Sessions</label>
+                        <input type="number" class="form-control" name="noOfSessions" id="noOfSessions" value="<%= item.noOfSessions %>">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="capacity" class="form-label">Max. Capacity</label>
+                        <input type="number" class="form-control" name="capacity" id="capacity" value="<%= item.capacity %>">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" class="form-control" name="price" id="price" value="<%= item.price %>">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="startDate" class="form-label">Start Date</label>
+                        <input type="date" class="form-control" name="startDate" id="startDate" value="<%= item.startDate %>">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="startTime" class="form-label">Start Time</label>
+                        <input type="time" class="form-control" name="startTime" id="startTime" value="<%= item.startTime %>">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="endTime" class="form-label">End Time</label>
+                        <input type="time" class="form-control" name="endTime" id="endTime" value="<%= item.endTime %>">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="mode" class="form-label">Mode of Instruction</label>
+                        <select type="text" class="form-select" name="mode" id="mode">
+                            <option selected> <%= item.mode %> </option>
+                            <option>Online</option>
+                            <option>Physical</option>
+                        </select>
+                    </div>
+                    <div class="col-md-8">
+                        <label for="location" class="form-label">Location of Class</label>
+                        <input type="text" class="form-control" name="location" id="location" value="<%= item.location %>">
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        </div>
+        
+        <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+            <strong>Optional information</strong>
+            </button>
+        </h2>
+        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+            <div class="accordion-body">
+
+                <div>
+                    <div class="row mb-3">
+                        <label for="targetAudience" class="col-sm-2 col-form-label">Target Audience</label>
+                        <div class="col-sm-3">
+                            <input type="number" class="form-control" name="minAge" id="minAge" value="<%= item.minAge %>">
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="number" class="form-control" name="maxAge" id="maxAge" value="<%= item.maxAge %>">
+                        </div>
+                        <div class="col-sm-3">
+                            <select type="text" class="form-select" name="gender" id="gender">
+                                <option selected> <%= item.gender %> </option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Everyone!</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="details" class="col-sm-2 col-form-label">Details</label>
+                        <div class="col-sm-6">
+                            <textarea class="form-control" aria-label="With textarea" name="details" value="<%= item.details %>"></textarea>
+                        </div>
+                        <div class="col-sm-3">
+                            <select type="text" class="form-select" name="typeOfExercise" id="typeOfExercise">
+                                <option selected> <%= item.typeOfExercise %> </option>
+                                <option>Balance</option>
+                                <option>Endurance</option>
+                                <option>Flexibility</option>
+                                <option>Strength</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="image" class="col-sm-2 col-form-label">Add image URL</label>
+                        <div class="col-sm-6">
+                            <input type="url" class="form-control" name="image" id="image" value="<%= item.image %>">
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+        </div>
+
+    </div>
+  <button type="submit" class="btn btn-outline-success me-2" type="button">Save Changes</button>
+</form>

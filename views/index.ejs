@@ -1,0 +1,33 @@
+<%- include('./partials/header') %>
+
+<h1>All Classes</h1>
+<div class="container">
+    <div class="scrollable-box">
+        <div class="row">
+
+            <% if (classes.length !== 0) { %>
+
+                <% classes.forEach((element, index) => { %>
+
+                    <div class="col-sm-3">
+                        <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= element.nameOfClass %></h5>
+                            <p class="card-text">Date:<%= element.startDate%></p>
+                            <p class="card-text">Time:<%= element.startTime%></p>
+                            <a href="/classes/<%= element.slug %>/<%= element._id %>" class="btn btn-primary">More info</a>
+                        </div>
+                        </div>
+                    </div>
+
+                <% }) %>
+
+            <% } else { %>
+                <p>No classes available</p>
+            <% } %>
+        </div>
+    </div>  
+
+</div>
+
+<%- include('./partials/footer') %>

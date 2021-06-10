@@ -1,0 +1,36 @@
+<table class="table table-borderless" id="table-class-information">
+    <tbody>
+        <tr>
+        <th scope="row">Day:</th>
+        <td><%= item.startDate %></td>
+        </tr>
+        <tr>
+            <th scope="row">Time:</th>
+            <td><%= item.startTime %></td>
+        </tr>
+        <tr>
+            <th scope="row">Mode</th>
+            <td><%= item.mode %></td>
+        </tr>
+        <tr>
+            <th scope="row">Type of exercise:</th>
+            <td><%= item.typeOfExercise %></td>
+        </tr>
+        <tr>
+            <th scope="row">Price:</th>
+            <td>$<%= item.price %></td>
+        </tr>
+        <tr>
+            <th scope="row">Details:</th>
+            <td><%= item.details %></td>
+        </tr>
+        <tr>
+            <th scope="row">Have doubts? Contact:</th>
+            <td><%= item.contact %></td>
+            <td><%= item.email %></td>
+        </tr>
+        <tr>
+            <td><img src="<%= item.image %>"/></td>
+        </tr>
+    </tbody>
+</table>

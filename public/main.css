@@ -1,0 +1,58 @@
+header {
+    width: 100%;
+    position: sticky;
+    left: 0;
+    top: 0;
+    z-index: 6;
+}
+
+footer {
+    position: sticky;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(250, 225, 208);
+}
+
+.footer-links {
+    display: inline-block;
+    width: 100%;
+    align-items:inherit;
+}
+
+.nav-item {
+    text-decoration: underline;
+}
+
+.footer-nav {
+    display: inline-block;
+}
+
+.btn {
+    background-color: rgb(189, 80, 18);
+    color: rgb(247, 248, 249);
+    border-color:  rgb(189, 80, 18);
+}
+
+p {
+    margin-bottom: 0;
+}
+
+.card {
+    margin-bottom: 1rem;
+}
+
+.banner {
+    padding: 1em;
+    background-color: rgb(250, 225, 208);
+}
+
+.banner-info {
+    display:-webkit-inline-box;
+}
+
+#show-table {
+    width: 50%;
+    border-style:groove;
+}
+
