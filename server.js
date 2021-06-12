@@ -5,7 +5,8 @@ require('dotenv').config();
 const express = require('express');
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
-const classController = require('./controllers/classes_controller');
+const classesRouter = require('./routers/classes_router');
+const usersRouter = require('./routers/users_router');
 
 const app = express();
 const port = 3000;
@@ -23,27 +24,10 @@ app.set('view engine', 'ejs');
 // =======================================
 //              ROUTES
 // =======================================
-//index route
-app.get('/classes', classController.index);
+//connect to classes router
+app.use('/classes', classesRouter);
 
-// new route
-app.get('/classes/new', classController.new);
-
-//create route
-app.post('/classes', classController.create);
-
-//show route
-app.get('/classes/:slug/:id', classController.show);
-
-//edit route
-app.get('/classes/:slug/:id/edit', classController.edit);
-
-//update route
-app.patch('/classes/:slug/:id', classController.update);
-
-//delete route
-app.delete('/classes/:slug/:id', classController.delete);
-
+// app.use('/users')
 
 // =======================================
 //              LISTENER

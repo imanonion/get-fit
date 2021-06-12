@@ -1,7 +1,7 @@
 require('dotenv').config();
 const mongoose =  require('mongoose');
 const _ = require('lodash');
-const { ClassModel } = require('./models/classes');
+const { ClassModel } = require('../models/classes');
 const moment = require('moment');
 
 const mongoURI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/${process.env.DB_NAME}`

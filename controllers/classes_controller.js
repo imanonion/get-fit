@@ -15,14 +15,14 @@ module.exports = {
             return 'server error'
         }
 
-        res.render('index', {
+        res.render('classes/index', {
             classes: classes
         })
     },
 
     new: (req, res) => {
         
-        res.render('new')
+        res.render('classes/new')
 
     },
 
@@ -71,7 +71,7 @@ module.exports = {
                     return
                 }
 
-                res.render('show', {
+                res.render('classes/show', {
                     item: item
                 })
             })
@@ -84,7 +84,7 @@ module.exports = {
     edit: (req, res) => {
         ClassModel.findOne({ _id: req.params.id })
             .then(item => {
-                res.render('edit', {
+                res.render('classes/edit', {
                     item: item
                 })
             })

@@ -1,4 +1,4 @@
-<%- include('./partials/header-2') %>
+<%- include('../partials/header-2') %>
 
 <div class="banner">
     <h3><i>EDIT CLASS</i></h3>
@@ -6,10 +6,10 @@
 </div>
 
 
-<%- include('./partials/class-edit') %>
+<%- include('../partials/class-edit') %>
 
 <form method="POST" action="/classes/<%= item.slug %>/<%= item._id %>?_method=DELETE">
     <button type="submit" class="btn btn-danger">Delete</button>
 </form>
 
-<%- include('./partials/footer') %>
+<%- include('../partials/footer') %>
