@@ -4,6 +4,10 @@
 const express = require('express');
 const router = express.Router();
 const classController = require('../controllers/classes_controller');
+const {
+    authenticatedOnly: authenticatedOnlyMiddleware,
+    guestOnly: guestOnlyMiddleware
+} = require('../middlewares/auth-middleware')
 
 // =======================================
 //              ROUTES
@@ -12,22 +16,22 @@ const classController = require('../controllers/classes_controller');
 router.get('/', classController.index);
 
 // new route
-router.get('/new', classController.new);
+router.get('/new', authenticatedOnlyMiddleware, classController.new);
 
 //create route
-router.post('/', classController.create);
+router.post('/', authenticatedOnlyMiddleware, classController.create);
 
 //show route
 router.get('/:slug/:id', classController.show);
 
 //edit route
-router.get('/:slug/:id/edit', classController.edit);
+router.get('/:slug/:id/edit', authenticatedOnlyMiddleware, classController.edit);
 
 //update route
-router.patch('/:slug/:id', classController.update);
+router.patch('/:slug/:id', authenticatedOnlyMiddleware, classController.update);
 
 //delete route
-router.delete('/:slug/:id', classController.delete);
+router.delete('/:slug/:id', authenticatedOnlyMiddleware, classController.delete);
 
 //export
 module.exports = router

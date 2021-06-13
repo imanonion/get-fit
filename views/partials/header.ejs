@@ -38,10 +38,24 @@
                 </div>
             </div>
 
-            <form container-fluid justify-content-start">
-                <a href="#"><button class="btn btn-outline-success me-2" type="button">Login/Register</button></a>
+            <div>
+
+              <% if (user)  { %>
+
+                <a href="/users/dashboard"><button class="btn btn-outline-success me-2" type="button">Dashboard</button></a>
+                <form method="POST" action="/users/logout">
+                  <button type="submit" class="btn btn-outline-success me-2">Logout</button>
+                </form>
+
+              <% } else { %>
+
+                <a href="/users/login"><button class="btn btn-outline-success me-2" type="button">Login</button></a>
+                <a href="/users/register"><button class="btn btn-outline-success me-2" type="button">Register</button></a>
                 <a href="/classes/new"><button class="btn btn-outline-success me-2" type="button">Create New Class</button></a>
-            </form>
+
+              <% } %>
+                
+            </div>
         </nav>
       </header>
 

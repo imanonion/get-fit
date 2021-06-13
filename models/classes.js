@@ -27,11 +27,6 @@ const classSchema = new mongoose.Schema ({
 
 }, { timestamps: true });
 
-//middleware to make sure slug is created from the nameOfClass
-// classSchema.pre('save', function (next) {
-//     this.slug = slugify(this.nameOfClass);
-// });
-
 //create the model
 const ClassModel = mongoose.model('Class', classSchema);
 

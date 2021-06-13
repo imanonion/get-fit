@@ -1,33 +1,34 @@
-// // =======================================
-// //              DEPENDENCIES
-// // =======================================
-// const express = require('express');
-// const router = express.Router();
-// const userController = require('../controllers/users_controller')
+// =======================================
+//              DEPENDENCIES
+// =======================================
+const express = require('express');
+const router = express.Router();
+const userController = require('../controllers/users_controller')
+const {
+    authenticatedOnly: authenticatedOnlyMiddleware,
+    guestOnly: guestOnlyMiddleware,
+} = require('../middlewares/auth-middleware')
 
-// // =======================================
-// //              ROUTES
-// // =======================================
-// //index route
-// router.get('/register', classController.index);
+// =======================================
+//              ROUTES
+// =======================================
+//user registration GET route
+router.get('/register', guestOnlyMiddleware, userController.registerForm);
 
-// // new route
-// router.get('/new', classController.new);
+//user registration POST route
+router.post('/register', guestOnlyMiddleware, userController.registerUser);
 
-// //create route
-// router.post('/', classController.create);
+//user login GET route
+router.get('/login', guestOnlyMiddleware, userController.loginForm);
 
-// //show route
-// router.get('/:slug/:id', classController.show);
+//user login POST route
+router.post('/login', guestOnlyMiddleware, userController.loginUser);
 
-// //edit route
-// router.get('/:slug/:id/edit', classController.edit);
+//dashboard GET route
+router.get('/dashboard', authenticatedOnlyMiddleware, userController.dashboard);
 
-// //update route
-// router.patch('/:slug/:id', classController.update);
+//logout POST route
+router.post('/logout', authenticatedOnlyMiddleware, userController.logout);
 
-// //delete route
-// router.delete('/:slug/:id', classController.delete);
-
-// //export
-// module.exports = router
+//export
+module.exports = router

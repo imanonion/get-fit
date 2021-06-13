@@ -1,0 +1,33 @@
+<%- include('../partials/header-2') %>
+
+<div class="banner">
+    <h3><i>REGISTER</i></h3>
+    <a href="/classes" class="btn btn-primary">Back to Homepage</a>
+</div>
+
+<form method="POST" action="/users/register">
+
+    <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" name="username" id="username">
+        <div id="usernameHelp" class="form-text">Your username will be visible to all.</div>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">Your email will be used to login to your account.</div>
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" id="password">
+    </div>
+    <div class="mb-3">
+        <label for="password_confirm" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" name="password_confirm" id="password_confirm">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+    
+</form>
+
+<%- include('../partials/footer') %>
