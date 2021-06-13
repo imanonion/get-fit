@@ -1,5 +1,6 @@
 const { response } = require('express');
 const { ClassModel } = require('../models/classes');
+const { UserModel } = require('../models/users');
 const _ = require('lodash');
 
 
@@ -20,13 +21,40 @@ module.exports = {
         })
     },
 
-    new: (req, res) => {
-        
-        res.render('classes/new')
+    new: async (req, res) => {
+        const messages = await req.consumeFlash('error')
+
+        UserModel.findOne({ email: req.session.user.email })
+            .then(item => {
+                //if item is not found, redirect to homepage
+                if (!item) {
+                    res.redirect('/classes')
+                    return
+                }
+
+                res.render('classes/new', {
+                    messages: messages,
+                    item: item
+                })
+            })
+            .catch(err => {
+                console.log(err)
+                res.redirect('/classes')
+            })
 
     },
 
     create: async (req, res) => {
+
+        //if field is empty, then redirect to  new form again
+        if (!req.body.nameOfClass) {
+            await req.flash('error', 'Please fill in Name of Class')
+
+            //predirect to new and pass  error message to frontend
+            res.redirect('/classes/new')
+
+            return
+        }
 
         let  slug = _.kebabCase(req.body.nameOfClass)
 

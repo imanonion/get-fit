@@ -4,6 +4,15 @@
     <h3><i>CREATE YOUR CLASS</i></h3>
 </div>
 
+<% if (messages.length > 0) { %>
+    <div class="alert alert-danger" role="alert">
+        <ul>
+            <% for (let msg of messages) { %>
+            <li><%= msg %></li>
+            <% } %>
+        </ul>
+    </div>
+<% } %>
 
 <%- include('../partials/class-new') %>
 

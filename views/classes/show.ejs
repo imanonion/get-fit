@@ -25,8 +25,25 @@
             </tbody>
         </table>
 
-        <a href="#" class="btn btn-primary">Book Now!</a>
-        <a href="/classes/<%= item.slug %>/<%= item._id %>/edit" class="btn btn-primary">Edit Class</a>
+        <div>
+
+            <% if (user)  { %>
+
+            <form method="POST" action="/users/logout">
+                <button type="submit" class="btn btn-primary">Book Now!</button>
+            </form>
+
+            <a href="/classes/<%= item.slug %>/<%= item._id %>/edit" class="btn btn-primary">Edit Class</a>
+
+
+            <% } else { %>
+                <form method="GET" action="/users/login">
+                    <button type="submit" class="btn btn-primary">Login to Book</button>
+                </form>
+            <% } %>
+
+        </div>
+
     </div>
 
 </div>

@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row align-items-start">
+      <div class="col dashboard-profile">
+        <h2><%= userProfile.username %></h2>
+        <p>Date joined:</p>
+        <p>Interests:</p>
+      </div>
+      <!--------------------- CLASSES BOOKED ---------------------->
+      <div class="col dashboard-booked">
+        <h4>Classes Booked</h4>
+
+      </div>
+
+      <!--------------------- CLASSES ORGANISED ---------------------->
+      <div class="col dashboard-organised">
+        <h4>Classes Organised</h4>
+        <div class="container booked-classes">
+          <div class="row">
+
+            <% if (userClasses.length !== 0) { %>
+
+                <% userClasses.forEach((element, index) => { %>
+
+                    <div class="col-sm-6">
+                        <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= element.nameOfClass %></h5>
+                            <p class="card-text">Date:<%= element.startDate%></p>
+                            <p class="card-text">Time:<%= element.startTime%></p>
+                            <a href="/classes/<%= element.slug %>/<%= element._id %>" class="btn btn-primary">More info</a>
+                        </div>
+                        </div>
+                    </div>
+
+                <% }) %>
+
+            <% } else { %>
+                <p>No classes organised</p>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

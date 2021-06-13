@@ -1,4 +1,5 @@
 const { UserModel } = require('../models/users')
+const { ClassModel } = require('../models/classes')
 const moment = require('moment')
 const bcrypt = require('bcrypt')
 const saltRounds = 10
@@ -6,7 +7,7 @@ const saltRounds = 10
 module.exports = {
 
     registerForm: (req, res) => {
-        res.render('/users/register')
+        res.render('users/register')
     },
 
     loginForm: (req, res) => {
@@ -82,6 +83,7 @@ module.exports = {
 
         if(!user) { //if user doesn't exist, redirect to register page
             res.redirect('/users/register')
+            return
         }
 
         //compare password to existing password
@@ -95,12 +97,34 @@ module.exports = {
         res.redirect('/users/dashboard')
     },
 
-    dashboard: (req, res) => {
+    dashboard: async (req, res) => {
 
-        //if user is logged in, middleware will bring them to dashboard
+        //if user is logged in, middleware will bring them to dashboard here
+        
+        let userClasses = []
+        let userProfile = {}
 
-        //if not logged in, bring user to login page
-        res.redirect('/users/login')
+        //get classes organised by user's email address
+        try {
+            userClasses = await ClassModel.find({ email: req.session.user.email })
+        } catch (err) {
+            res.statusCode(500)
+            return 'server error'
+        }
+
+        //get username to display in dashboard
+        try {
+            userProfile = await UserModel.findOne({ email: req.session.user.email })
+        } catch (err) {
+            res.statusCode(500)
+            return 'server error'
+        }
+                
+        res.render('users/dashboard', {
+            userClasses: userClasses,
+            userProfile: userProfile
+        })
+
     },
 
     logout: (req, res) => {

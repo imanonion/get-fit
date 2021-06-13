@@ -18,7 +18,9 @@
                         </div>
                         <div class="col-md-6">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" name="email" id="email" placeholder="someone@example.com">
+                            <input type="email" class="form-control" name="email" id="email" value="<%= item.email %>" readonly>
+                            <div id="emailHelp" class="form-text">Email from your profile</div>
+
                         </div>
                         <div class="col-md-6">
                             <label for="contact" class="form-label">Contact</label>
