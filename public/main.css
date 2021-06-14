@@ -42,7 +42,7 @@ p {
     margin-bottom: 1rem;
 }
 
-.banner {
+.banner, .search-bar {
     padding: 1em;
     background-color: rgb(250, 225, 208);
 }

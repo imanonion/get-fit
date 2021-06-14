@@ -27,15 +27,14 @@
 
         <div>
 
-            <% if (user)  { %>
+            <% if (countsOfClassBooked === item.capacity) { %>
+                <button type="button" class="btn btn-primary" disabled>Sold Out</button>
+            <% } else if (user)  { %>
+                <form method="POST" action="/classes/<%= item.slug %>/<%= item._id %>/booking">
+                    <button type="submit" class="btn btn-primary">Book Now!</button>
+                </form>
 
-            <form method="POST" action="/classes/<%= item.slug %>/<%= item._id %>/booking">
-                <button type="submit" class="btn btn-primary">Book Now!</button>
-            </form>
-
-            <a href="/classes/<%= item.slug %>/<%= item._id %>/edit" class="btn btn-primary">Edit Class</a>
-
-
+                <a href="/classes/<%= item.slug %>/<%= item._id %>/edit" class="btn btn-primary">Edit Class</a>
             <% } else { %>
                 <form method="GET" action="/users/login">
                     <button type="submit" class="btn btn-primary">Login to Book</button>

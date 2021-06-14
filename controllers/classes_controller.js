@@ -1,6 +1,7 @@
 const { response } = require('express');
 const { ClassModel } = require('../models/classes');
 const { UserModel } = require('../models/users');
+const { BookingModel } = require('../models/bookings');
 const _ = require('lodash');
 
 
@@ -89,24 +90,30 @@ module.exports = {
             })
     },
 
-    show: (req, res) => {
+    show: async (req, res) => {
 
-        ClassModel.findOne({ _id: req.params.id })
-            .then(item => {
-                //if item is not found, redirect to homepage
-                if (!item) {
-                    res.redirect('/classes')
-                    return
-                }
+        //count no of bookings for this class
+        try {
+           countsOfClassBooked = await BookingModel.countDocuments({ class_id: req.params.id })
+        } catch (err) {
+            console.log(err)
+            res.statusCode(500)
+            return 'server error'
+        }
 
-                res.render('classes/show', {
-                    item: item
-                })
-            })
-            .catch(err => {
-                console.log(err)
-                res.redirect('/classes')
-            })
+        //retrieve class details
+        try {
+            item = await ClassModel.findOne({ _id: req.params.id })
+        } catch (err) {
+            console.log(err)
+            res.redirect('/classes')
+            return
+        }
+
+        res.render('classes/show', {
+            item: item,
+            countsOfClassBooked: countsOfClassBooked
+        })
     },
 
     edit: (req, res) => {
@@ -117,7 +124,7 @@ module.exports = {
                 })
             })
             .catch(err => {
-                console.log(error)
+                console.log(err)
                 res.redirect('/classes')
             })
     },

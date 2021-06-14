@@ -124,8 +124,6 @@ module.exports = {
             return 'server error'
         }
 
-        console.log(bookedClassesID)
-
         try {
             for (const eachClass of bookedClassesID) {
                let bookedClass = await ClassModel.findOne({ _id: eachClass.class_id })
@@ -136,8 +134,6 @@ module.exports = {
             res.statusCode(500)
             return 'server error'
         }
-
-        console.log(bookedClasses)
 
         //get username to display in dashboard
         try {
