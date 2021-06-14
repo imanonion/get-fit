@@ -1,5 +1,6 @@
 const { UserModel } = require('../models/users')
 const { ClassModel } = require('../models/classes')
+const { BookingModel } = require('../models/bookings')
 const moment = require('moment')
 const bcrypt = require('bcrypt')
 const saltRounds = 10
@@ -101,16 +102,42 @@ module.exports = {
 
         //if user is logged in, middleware will bring them to dashboard here
         
-        let userClasses = []
+        let organisedClasses = []
+        let bookedClassesID = []
+        let bookedClasses = []
         let userProfile = {}
 
         //get classes organised by user's email address
         try {
-            userClasses = await ClassModel.find({ email: req.session.user.email })
+            organisedClasses = await ClassModel.find({ email: req.session.user.email })
         } catch (err) {
             res.statusCode(500)
             return 'server error'
         }
+
+        //get classes booked by user
+        try {
+            bookedClassesID =  await BookingModel.find({ user_email: req.session.user.email })
+        } catch (err) {
+            console.log(err)
+            res.statusCode(500)
+            return 'server error'
+        }
+
+        console.log(bookedClassesID)
+
+        try {
+            for (const eachClass of bookedClassesID) {
+               let bookedClass = await ClassModel.findOne({ _id: eachClass.class_id })
+               bookedClasses.push(bookedClass)
+            }
+        } catch (err) {
+            console.log(err) 
+            res.statusCode(500)
+            return 'server error'
+        }
+
+        console.log(bookedClasses)
 
         //get username to display in dashboard
         try {
@@ -121,7 +148,8 @@ module.exports = {
         }
                 
         res.render('users/dashboard', {
-            userClasses: userClasses,
+            organisedClasses: organisedClasses,
+            bookedClasses: bookedClasses,
             userProfile: userProfile
         })
 

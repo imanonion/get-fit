@@ -35,7 +35,7 @@ router.patch('/:slug/:id', authenticatedOnlyMiddleware, classController.update);
 router.delete('/:slug/:id', authenticatedOnlyMiddleware, classController.delete);
 
 //post booking when "Book Now" button in show.ejs is pressed
-router.post('/:slug/:id/booking/', authenticatedOnlyMiddleware, bookingController.create)
+router.post('/:slug/:id/booking', authenticatedOnlyMiddleware, bookingController.bookClass)
 
 //export
 module.exports = router

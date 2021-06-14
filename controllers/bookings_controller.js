@@ -3,57 +3,45 @@ const { ClassModel } = require('../models/classes');
 const { UserModel } = require('../models/users');
 const { BookingModel } = require('../models/bookings');
 const _ = require('lodash');
+const moment = require('moment');
 
 
 module.exports = {
 
-    // new: async (req, res) => {
+    bookClass: async (req, res) => {
+        let classInfo = []
 
-    // },
+        //get class_id from url and organiser_email
+        try {
+            classInfo = await ClassModel.findOne({ _id: req.params.id })
+        } catch (err) {
+            res.statusCode(500)
+        }
 
-    create: async (req, res) => {
+        const timestampNow = moment().utc()
 
-        //if field is empty, then redirect to  new form again
-        if (!req.body.nameOfClass) {
-            await req.flash('error', 'Please fill in Name of Class')
+        console.log(classInfo)
+        //get organiser email address 
+        let organiser_email = classInfo.email
+        console.log(organiser_email)
 
-            //predirect to new and pass  error message to frontend
-            res.redirect('/classes/new')
-
+        //create new booking
+        try {
+            await BookingModel.create({
+                user_email: req.session.user.email,
+                class_id: req.params.id,
+                organiser_email: organiser_email,
+                created_at: timestampNow,
+                updated_at: timestampNow
+            })
+        } catch (err) {
+            console.log(err)
+            res.redirect('/classes/' + req.params.slug + '/' + req.params.id)
             return
         }
 
-        let  slug = _.kebabCase(req.body.nameOfClass)
-
-        ClassModel.create({
-            slug: slug,
-            orgName: req.body.orgName,
-            email: req.body.email,
-            contact: req.body.contact,
-            nameOfClass: req.body.nameOfClass,
-            genreOfExercise: req.body.genreOfExercise,
-            noOfSessions: req.body.noOfSessions,
-            capacity: req.body.capacity,
-            price: req.body.price,
-            startDate: req.body.startDate,
-            startTime: req.body.startTime,
-            endTime: req.body.endTime,
-            mode: req.body.mode,
-            location: req.body.location,
-            minAge: req.body.minAge,
-            maxAge: req.body.maxAge,
-            gender: req.body.gender,
-            details: req.body.details,
-            typeOfExercise: req.body.typeOfExercise,
-            image: req.body.image
-        })
-            .then(createResp => {
-                res.redirect('/classes')
-            })
-            .catch(err => {
-                console.log(err)
-                res.redirect('/classes/new')
-            })
+        res.redirect('/classes/' + req.params.slug + '/' + req.params.id)
+            
     },
 
 }
