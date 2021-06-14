@@ -4,6 +4,7 @@
 const express = require('express');
 const router = express.Router();
 const classController = require('../controllers/classes_controller');
+const bookingController = require('../controllers/bookings_controller');
 const {
     authenticatedOnly: authenticatedOnlyMiddleware,
     guestOnly: guestOnlyMiddleware
@@ -32,6 +33,9 @@ router.patch('/:slug/:id', authenticatedOnlyMiddleware, classController.update);
 
 //delete route
 router.delete('/:slug/:id', authenticatedOnlyMiddleware, classController.delete);
+
+//post booking when "Book Now" button in show.ejs is pressed
+router.post('/:slug/:id/booking/', authenticatedOnlyMiddleware, bookingController.create)
 
 //export
 module.exports = router

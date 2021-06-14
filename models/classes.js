@@ -24,7 +24,6 @@ const classSchema = new mongoose.Schema ({
     details: { type: String },
     typeOfExercise: { type: String },
     image: { type: String }
-
 }, { timestamps: true });
 
 //create the model
