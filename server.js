@@ -12,7 +12,7 @@ const classesRouter = require('./routers/classes_router');
 const usersRouter = require('./routers/users_router');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000; // tenary operator
 const mongoURI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/${process.env.DB_NAME}`
 
 //middlewares to accept json and urlencoded request body
