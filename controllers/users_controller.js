@@ -146,7 +146,8 @@ module.exports = {
         res.render('users/dashboard', {
             organisedClasses: organisedClasses,
             bookedClasses: bookedClasses,
-            userProfile: userProfile
+            userProfile: userProfile,
+            moment: moment
         })
 
     },
