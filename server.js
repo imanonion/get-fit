@@ -46,6 +46,11 @@ app.set('view engine', 'ejs');
 // =======================================
 //              ROUTES
 // =======================================
+
+app.get('/', (req, res) => {
+  res.redirect('/classes');
+})
+
 //connect to classes router
 app.use('/classes', classesRouter);
 
