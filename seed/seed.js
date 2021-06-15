@@ -25,12 +25,13 @@ let data = [
 
 data = data.map(item => {
     item.slug = _.kebabCase(item.nameOfClass)
+    item.startDateTime = moment(item.startDateTime).format('ddd DD MMM YYYY')
+    item.startDay = moment(item.startDateTime).format('ddd')
+    item.endDateTime = moment(item.endDateTime).format('ddd DD MMM YYYY')
+    item.endDay = moment(item.endDateTime).format('ddd')
+    
     return item
 })
-
-console.log(data)
-
-// moment().format();
 
 let connection = null;
 

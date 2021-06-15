@@ -62,17 +62,13 @@
                         <input type="number" class="form-control" name="price" id="price" value="<%= item.price %>">
                     </div>
 
-                    <div class="col-md-4">
-                        <label for="startDate" class="form-label">Start Date</label>
-                        <input type="date" class="form-control" name="startDate" id="startDate" value="<%= item.startDate %>">
+                    <div class="col-md-6">
+                        <label for="startDateTime" class="form-label">Start Date & Time</label>
+                        <input type="datetime-local" class="form-control" name="startDateTime" id="startDateTime" value="<%= item.startDateTime %>">
                     </div>
-                    <div class="col-md-4">
-                        <label for="startTime" class="form-label">Start Time</label>
-                        <input type="time" class="form-control" name="startTime" id="startTime" value="<%= item.startTime %>">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="endTime" class="form-label">End Time</label>
-                        <input type="time" class="form-control" name="endTime" id="endTime" value="<%= item.endTime %>">
+                    <div class="col-md-6">
+                        <label for="endDateTime" class="form-label">End Date & Time</label>
+                        <input type="datetime-local" class="form-control" name="endDateTime" id="endDateTime" value="<%= item.endDateTime %>">
                     </div>
 
                     <div class="col-md-4">

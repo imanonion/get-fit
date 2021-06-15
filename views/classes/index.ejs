@@ -37,12 +37,15 @@
 
                 <% classes.forEach((element, index) => { %>
 
+                    <% let startDate = moment(element.startDateTime).format('ddd DD MMM YYYY') %>
+                    <% let startTime = moment(element.startDateTime).format('h:mm a') %>
+
                     <div class="col-sm-3">
                         <div class="card">
                         <div class="card-body">
                             <h5 class="card-title"><%= element.nameOfClass %></h5>
-                            <p class="card-text">Date:<%= element.startDate%></p>
-                            <p class="card-text">Time:<%= element.startTime%></p>
+                            <p class="card-text">Start Date:<%= startDate %></p>
+                            <p class="card-text">Time:<%= startTime%></p>
                             <a href="/classes/<%= element.slug %>/<%= element._id %>" class="btn btn-primary">More info</a>
                         </div>
                         </div>

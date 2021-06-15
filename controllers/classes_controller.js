@@ -3,7 +3,7 @@ const { ClassModel } = require('../models/classes');
 const { UserModel } = require('../models/users');
 const { BookingModel } = require('../models/bookings');
 const _ = require('lodash');
-
+const moment = require('moment');
 
 module.exports = {
 
@@ -12,14 +12,17 @@ module.exports = {
 
         try {
             classes = await ClassModel.find()
+            
+            
+            res.render('classes/index', {
+                classes: classes,
+                //to use moment() in index.ejs
+                moment: moment 
+            })
         } catch (err) {
             res.statusCode(500)
             return 'server error'
         }
-
-        res.render('classes/index', {
-            classes: classes
-        })
     },
 
     new: async (req, res) => {
@@ -57,7 +60,9 @@ module.exports = {
             return
         }
 
-        let  slug = _.kebabCase(req.body.nameOfClass)
+        let slug = _.kebabCase(req.body.nameOfClass)
+        let startDay = moment(req.body.startDateTime).format('ddd')
+        let endDay = moment(req.body.endDateTime).format('ddd')
 
         ClassModel.create({
             slug: slug,
@@ -69,9 +74,10 @@ module.exports = {
             noOfSessions: req.body.noOfSessions,
             capacity: req.body.capacity,
             price: req.body.price,
-            startDate: req.body.startDate,
-            startTime: req.body.startTime,
-            endTime: req.body.endTime,
+            startDateTime: req.body.startDateTime,
+            startDay: startDay,
+            endDateTime: req.body.endDateTime,
+            endDay: endDay,
             mode: req.body.mode,
             location: req.body.location,
             minAge: req.body.minAge,
@@ -103,17 +109,33 @@ module.exports = {
 
         //retrieve class details
         try {
-            item = await ClassModel.findOne({ _id: req.params.id })
+            let item = await ClassModel.findOne({ _id: req.params.id })
+            let startDate = moment(item.startDateTime).format('ddd DD MMM YYYY')
+            let startDay = moment(item.startDateTime).format('ddd')
+            let startTime = moment(item.startDateTime).format('h:mm a')
+            let endDate = moment(item.endDateTime).format('ddd DD MMM YYYY')
+            let endDay = moment(item.endDateTime).format('ddd')
+            let endTime = moment(item.endDateTime).format('h:mm a')
+
+            res.render('classes/show', {
+                item,
+                countsOfClassBooked,
+                startDate,
+                startDay,
+                startTime,
+                endDate,
+                endDay,
+                endTime
+            })
+
         } catch (err) {
             console.log(err)
             res.redirect('/classes')
             return
         }
 
-        res.render('classes/show', {
-            item: item,
-            countsOfClassBooked: countsOfClassBooked
-        })
+
+
     },
 
     edit: (req, res) => {
@@ -131,6 +153,8 @@ module.exports = {
 
     update: (req, res) => {
         let updateSlug = _.kebabCase(req.body.nameOfClass)
+        let startDay = moment(req.body.startDateTime).format('ddd')
+        let endDay = moment(req.body.endDateTime).format('ddd')
 
         ClassModel.updateOne(
             { id: req.body._id },
@@ -145,9 +169,10 @@ module.exports = {
                     noOfSessions: req.body.noOfSessions,
                     capacity: req.body.capacity,
                     price: req.body.price,
-                    startDate: req.body.startDate,
-                    startTime: req.body.startTime,
-                    endTime: req.body.endTime,
+                    startDateTime: req.body.startDateTime,
+                    startDay: startDay,
+                    endDateTime: req.body.endDateTime,
+                    endDay: endDay,
                     mode: req.body.mode,
                     location: req.body.location,
                     minAge: req.body.minAge,
@@ -179,3 +204,6 @@ module.exports = {
     }
 
 }
+
+
+

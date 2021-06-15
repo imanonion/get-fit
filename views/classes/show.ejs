@@ -12,7 +12,7 @@
                 </tr>
                 <tr>
                     <th scope="row">Starting Date:</th>
-                    <td><%= item.startDate %></td>
+                    <td><%= startDate %></td>
                 </tr>
                 <tr>
                     <th scope="row">No. of sessions:</th>
@@ -20,7 +20,7 @@
                 </tr>
                 <tr>
                     <th scope="row">Capacity:</th>
-                    <td>10/<%= item.capacity %></td>
+                    <td><%= item.capacity - countsOfClassBooked %>/<%= item.capacity %></td>
                 </tr>
             </tbody>
         </table>

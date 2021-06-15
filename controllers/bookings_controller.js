@@ -18,7 +18,7 @@ module.exports = {
             res.statusCode(500)
         }
 
-        const timestampNow = moment().utc()
+        const timestampNow = moment()
 
         console.log(classInfo)
         //get organiser email address 

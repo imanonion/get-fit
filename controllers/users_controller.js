@@ -47,7 +47,7 @@ module.exports = {
             return
         }
 
-        const timestampNow = moment().utc()
+        const timestampNow = moment()
 
         //hashing using bcrypt
         const generatedHash = await bcrypt.hash(req.body.password, saltRounds)
