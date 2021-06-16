@@ -20,8 +20,16 @@ MomentJS,
 Mockaroo,
 Heroku
 
+Pages:
+/classes = homepage,
+/classes/search/?day='Day' = search results,
+/users/login = login page,
+/users/register = register page,
+/classes/:slug/:id = show one class's details
+
 
 Routes:
+
 
 
 

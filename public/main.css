@@ -69,7 +69,7 @@ h1 {
     height: 3rem;
 }
 
-.form, .classes-section, .login-form {
+.form, .classes-section, .login-form, .register-form {
     display: block;
     text-align: center;
 }
