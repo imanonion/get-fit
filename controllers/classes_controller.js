@@ -31,6 +31,14 @@ module.exports = {
     },
 
     searchIndex: async (req, res) => {
+        //if no day was chosen, then redirect to homepage
+        if (req.query.day === 'undefined') {
+            await req.flash('error', 'Please fill in Name of Class')
+            res.redirect('/classes')
+
+            return
+        }
+
         try {
             let day = req.query.day
             let searchFilter = await ClassModel.find({ startDay: day })

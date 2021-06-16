@@ -16,10 +16,10 @@ const {
 //index route
 router.get('/', classController.index);
 
-//search route
+//search post route
 router.post('/search', classController.searchQuery);
 
-//search route
+//search get route
 router.get('/search', classController.searchIndex);
 
 // new route

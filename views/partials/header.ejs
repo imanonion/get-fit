@@ -18,45 +18,38 @@
 
       <header>
         <!-- <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-              <a class="navbar-brand" href="/classes">
-                <img src="/getfit_logo.png" alt="Get Fit Logo" width="110" height="92"/>
-              </a>
-            </div>
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+          <a class="navbar-brand" href="/classes">
+            <img src="/getfit_logo.png" alt="Get Fit Logo" width="110" height="92"/>
+          </a>
 
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                  <ul class="navbar-nav">
-                    <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="/classes">Home</a>
-                    </li>
-                  </ul>
-                </div>
-            </div>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/classes" style="color: indianred; font-size: large;">Show All</a>
+              </li>
+            </ul>
+          </div>
 
-            <div>
+          <div>
 
-              <% if (user)  { %>
+            <% if (user)  { %>
 
-                <a href="/users/dashboard"><button class="btn btn-outline-success me-2" type="button">Dashboard</button></a>
-                <a href="/classes/new"><button class="btn btn-outline-success me-2" type="button">Create New Class</button></a>
-                <form method="POST" action="/users/logout">
-                  <button type="submit" class="btn btn-outline-success me-2">Logout</button>
-                </form>
+              <a href="/users/dashboard"><button class="btn btn-outline-success me-2" type="button">Dashboard</button></a>
+              <a href="/classes/new"><button class="btn btn-outline-success me-2" type="button">Create New Class</button></a>
+              <form method="POST" action="/users/logout">
+                <button type="submit" class="btn btn-outline-success me-2">Logout</button>
+              </form>
 
-              <% } else { %>
+            <% } else { %>
 
-                <a href="/users/login"><button class="btn btn-outline-success me-2" type="button">Login</button></a>
-                <a href="/users/register"><button class="btn btn-outline-success me-2" type="button">Register</button></a>
-                <a href="/classes/new"><button class="btn btn-outline-success me-2" type="button">Create New Class</button></a>
+              <a href="/users/login"><button class="btn btn-outline-success me-2" type="button">Login</button></a>
+              <a href="/users/register"><button class="btn btn-outline-success me-2" type="button">Register</button></a>
+              <a href="/classes/new"><button class="btn btn-outline-success me-2" type="button">Create New Class</button></a>
 
-              <% } %>
-                
-            </div>
+            <% } %>
+              
+          </div>
         </nav>
       </header>
 

@@ -3,7 +3,11 @@ header {
     position: sticky;
     left: 0;
     top: 0;
-    z-index: 6;
+    z-index: 2;
+}
+
+.navbar {
+    padding: 0;
 }
 
 footer {
@@ -38,12 +42,16 @@ p {
     margin-bottom: 0;
 }
 
+h1 {
+    color: rgb(181,70,19);
+}
+
 .card {
     margin-bottom: 1rem;
 }
 
 .banner, .search-bar {
-    padding: 1em;
+    padding: 1rem;
     background-color: rgb(250, 225, 208);
 }
 
@@ -54,5 +62,20 @@ p {
 #show-table {
     width: 50%;
     border-style:groove;
+}
+
+.btn-search {
+    width: 3rem;
+    height: 3rem;
+}
+
+.form, .classes-section, .login-form {
+    display: block;
+    text-align: center;
+}
+
+form, .display-classes {
+    display: inline-block;
+    text-align: left;
 }
 

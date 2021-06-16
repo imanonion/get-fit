@@ -5,19 +5,28 @@
     <a href="/classes" class="btn btn-primary">Back to Homepage</a>
 </div>
 
-<form method="POST" action="/users/login">
+<div class="login-form mt-3 mb-3">
+    <form method="POST" action="/users/login">
 
-    <div class="mb-3">
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
-    </div>
-    <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" name="password" id="password">
-    </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" id="password">
+        </div>
 
-    <button type="submit" class="btn btn-primary">Login</button>
-    
-</form>
+        <div class="row">
+            <div class="col">
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+            <div class="col">
+                <p>or <a href="/users/register">Register</a></p>
+            </div>
+        </div>
+
+    </form>
+</div>
 
 <%- include('../partials/footer') %>

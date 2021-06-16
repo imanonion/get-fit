@@ -1,80 +1,84 @@
 <%- include('../partials/header') %>
 
-<div class="search-bar mb-3 mt-3">
-    <h1>Quick Search</h1>
-    <form method="POST" action="/classes/search">
-        <div class="row">
-            <div class="col-md-2">
-                <label for="day" class="form-label">Day</label>
-                <select type="text" class="form-select" name="day" id="day">
-                    <option disabled selected hidden>Choose Day</option>
-                    <option>Mon</option>
-                    <option>Tue</option>
-                    <option>Wed</option>
-                    <option>Thu</option>
-                    <option>Fri</option>
-                    <option>Sat</option>
-                    <option>Sun</option>
-                </select>            
+<div class="search-bar mb-3">
+    <div class="form">
+        <form method="POST" action="/classes/search">
+            <h1><i>Quick Search</i></h1>
+            <div class="row">
+                <div class="col-md-2">
+                    <label for="day" class="form-label">Day</label>
+                    <select type="text" class="form-select" name="day" id="day">
+                        <option disabled selected>Choose Day</option>
+                        <option>Mon</option>
+                        <option>Tue</option>
+                        <option>Wed</option>
+                        <option>Thu</option>
+                        <option>Fri</option>
+                        <option>Sat</option>
+                        <option>Sun</option>
+                    </select>            
+                </div>
+                <div class="col-sm-2">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="text" class="form-control" name="price" placeholder="Price" aria-label="Price" disabled>
+                </div>
+                <div class="col-sm-2">
+                    <label for="time" class="form-label">Time</label>
+                    <input type="text" class="form-control" name="time" placeholder="Time" aria-label="Time" disabled>
+                </div>
+                <div class="col-sm-2">
+                    <label for="genreOfExercise" class="form-label">Genre of Exercise</label>
+                    <input type="text" class="form-control" name="genreOfExercise" placeholder="Genre" aria-label="Genre" disabled>
+                </div>
+                <div class="col-sm-2">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" class="form-control" name="location" placeholder="Location" aria-label="Location" disabled>
+                </div>
+
+                <div class="col-sm-1">
+                    <button type="submit" class="btn btn-primary btn-search">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
-            <div class="col-md-2">
-                <label for="time" class="form-label">Time</label>
-                <input type="text" class="form-control" name="time" placeholder="Time" aria-label="Time" disabled>
-            </div>
-            <div class="col-md-2">
-                <label for="genreOfExercise" class="form-label">Genre of Exercise</label>
-                <input type="text" class="form-control" name="genreOfExercise" placeholder="Genre" aria-label="Genre" disabled>
-              </div>
-              <div class="col-md-2">
-                <label for="location" class="form-label">Location</label>
-                <input type="text" class="form-control" name="location" placeholder="Location" aria-label="Location" disabled>
-              </div>
-              <div class="col-md-2">
-                <label for="price" class="form-label">Price</label>
-                <input type="text" class="form-control" name="price" placeholder="Price" aria-label="Price" disabled>
-              </div>
-              <div class="col-md-2">
-                <button type="submit" class="btn btn-primary">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                    </svg>
-                </button>
-              </div>       
-          </div>
+        </form>
+    </div>
+</div>
+
+<div class="classes-section">
+    <div class="display-classes">
+        <h1>All Classes</h1>
+        <div class="container">
+                <div class="row">
+
+                    <% if (classes.length !== 0) { %>
+
+                        <% classes.forEach((element, index) => { %>
+
+                            <% let startDate = moment(element.startDateTime).format('ddd DD MMM YYYY') %>
+                            <% let startTime = moment(element.startDateTime).format('h:mm a') %>
+
+                            <div class="col-sm-3">
+                                <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= element.nameOfClass %></h5>
+                                    <p class="card-text">Start Date: <%= startDate %></p>
+                                    <p class="card-text">Time: <%= startTime%></p>
+                                    <a href="/classes/<%= element.slug %>/<%= element._id %>" class="btn btn-primary">More info</a>
+                                </div>
+                                </div>
+                            </div>
+
+                        <% }) %>
+
+                    <% } else { %>
+                        <p>No classes available</p>
+                    <% } %>
+                </div>
         </div>
-    </form>
-    
-<h1>All Classes</h1>
-<div class="container">
-    <div class="scrollable-box">
-        <div class="row">
-
-            <% if (classes.length !== 0) { %>
-
-                <% classes.forEach((element, index) => { %>
-
-                    <% let startDate = moment(element.startDateTime).format('ddd DD MMM YYYY') %>
-                    <% let startTime = moment(element.startDateTime).format('h:mm a') %>
-
-                    <div class="col-sm-3">
-                        <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title"><%= element.nameOfClass %></h5>
-                            <p class="card-text">Start Date: <%= startDate %></p>
-                            <p class="card-text">Time: <%= startTime%></p>
-                            <a href="/classes/<%= element.slug %>/<%= element._id %>" class="btn btn-primary">More info</a>
-                        </div>
-                        </div>
-                    </div>
-
-                <% }) %>
-
-            <% } else { %>
-                <p>No classes available</p>
-            <% } %>
-        </div>
-    </div>  
-
+    </div>
 </div>
 
 <%- include('../partials/footer') %>
