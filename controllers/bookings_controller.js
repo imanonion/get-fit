@@ -20,10 +20,8 @@ module.exports = {
 
         const timestampNow = moment()
 
-        console.log(classInfo)
         //get organiser email address 
         let organiser_email = classInfo.email
-        console.log(organiser_email)
 
         //create new booking
         try {

@@ -1,3 +1,4 @@
+const { response } = require('express');
 const { UserModel } = require('../models/users')
 const { ClassModel } = require('../models/classes')
 const { BookingModel } = require('../models/bookings')
@@ -118,6 +119,7 @@ module.exports = {
         //get classes booked by user
         try {
             bookedClassesID =  await BookingModel.find({ user_email: req.session.user.email })
+            console.log(bookedClassesID)
         } catch (err) {
             console.log(err)
             res.statusCode(500)
@@ -125,13 +127,16 @@ module.exports = {
         }
 
         try {
-            if(bookedClasses.length !== 0) {
+            if(bookedClassesID.length !== 0) {
                 for (const eachClass of bookedClassesID) {
-                let bookedClass = await ClassModel.findOne({ _id: eachClass.class_id })
-                bookedClasses.push(bookedClass)
+                    let bookedClass = await ClassModel.findOne({ _id: eachClass.class_id })
+                    bookedClasses.push(bookedClass)
+                    
                 }
+                console.log(bookedClasses)
             } else {
                 bookedClasses = []
+                console.log(bookedClasses)
             }
         } catch (err) {
             console.log(err) 
