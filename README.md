@@ -12,10 +12,11 @@ Some reference apps are: ActiveSG, Healthy365, pa.gov.sg
 At the time of writing this, there is currently no API to link to government data on community exercise classes. Hence, mock data was created using Mockaroo. Hopefully there'll be an API in future. 
 
 Technologies used:
-Node.js
+Node.js,
 Mongoose, 
 Express,
 EJS, 
+Bootstrap,
 MomentJS,
 Mockaroo,
 Heroku

@@ -1,8 +1,8 @@
 <table class="table table-borderless" id="table-class-information">
     <tbody>
         <tr>
-        <th scope="row">Day:</th>
-        <td><%= startDay %></td>
+            <th scope="row">Day:</th>
+            <td><%= startDay %></td>
         </tr>
         <tr>
             <th scope="row">Time:</th>
@@ -22,15 +22,16 @@
         </tr>
         <tr>
             <th scope="row">Details:</th>
-            <td><%= item.details %></td>
+            <td style="width: 10rem;" colspan="2"><%= item.details %></td>
         </tr>
         <tr>
-            <th scope="row">Have doubts? Contact:</th>
-            <td><%= item.contact %></td>
-            <td><%= item.email %></td>
-        </tr>
-        <tr>
+            <td></td>
             <td><img src="<%= item.image %>"/></td>
+        </tr>
+        <tr>
+            <th scope="row">Contact:</th>
+            <td><%= item.contact %> </td>
+            <td><%= item.email %></td>
         </tr>
     </tbody>
 </table>

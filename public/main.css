@@ -42,7 +42,7 @@ p {
     margin-bottom: 0;
 }
 
-h1 {
+h1, h2, h3 {
     color: rgb(181,70,19);
 }
 
@@ -55,13 +55,9 @@ h1 {
     background-color: rgb(250, 225, 208);
 }
 
-.banner-info {
-    display:-webkit-inline-box;
-}
-
 #show-table {
-    width: 50%;
     border-style:groove;
+    border-color: rgb(255, 214, 174);
 }
 
 .btn-search {
@@ -69,12 +65,12 @@ h1 {
     height: 3rem;
 }
 
-.form, .classes-section, .login-form, .register-form {
+.form, .classes-section, .login-form, .register-form, .show-banner, .information-section {
     display: block;
     text-align: center;
 }
 
-form, .display-classes {
+form, .display-classes, .banner-info, .class-information {
     display: inline-block;
     text-align: left;
 }

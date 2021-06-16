@@ -1,57 +1,60 @@
 <%- include('../partials/header') %>
 
-<div class="banner">
-    <h3><%= item.nameOfClass %></h3>
-
+<div class="banner show-banner">
     <div class="banner-info">
-        <table class="table table-borderless" id="show-table">
-            <tbody>
-                <tr>
-                <th scope="row">Organiser:</th>
-                <td><%= item.orgName %></td>
-                </tr>
-                <tr>
-                    <th scope="row">Starting Date:</th>
-                    <td><%= startDate %></td>
-                </tr>
-                <tr>
-                    <th scope="row">No. of sessions:</th>
-                    <td><%= item.noOfSessions %></td>
-                </tr>
-                <tr>
-                    <th scope="row">Vacancy:</th>
-                    <td><%= item.capacity - countsOfClassBooked %>/<%= item.capacity %></td>
-                </tr>
-            </tbody>
-        </table>
+        <h2><i><%= item.nameOfClass %></i></h2>
+        <div class="row">
+            <div class=col-md-9>
+                <table class="table table-borderless" id="show-table">
+                    <tbody>
+                        <tr>
+                        <th scope="row">Organiser:</th>
+                        <td><%= item.orgName %></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Starting Date:</th>
+                            <td><%= startDate %></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Sessions:</th>
+                            <td><%= item.noOfSessions %></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Participants:</th>
+                            <td><%= countsOfClassBooked %>/<%= item.capacity %></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        
 
-        <div>
+            <div class="col-md-3">
 
-            <% if (countsOfClassBooked === item.capacity) { %>
-                <button type="button" class="btn btn-primary" disabled>Sold Out</button>
-            <% } else if (user)  { %>
-                <form method="POST" action="/classes/<%= item.slug %>/<%= item._id %>/booking">
-                    <button type="submit" class="btn btn-primary">Book Now!</button>
-                </form>
+                <% if (countsOfClassBooked === item.capacity) { %>
+                    <button type="button" class="btn btn-primary" disabled>Sold Out</button>
+                <% } else if (user)  { %>
+                    <form method="POST" action="/classes/<%= item.slug %>/<%= item._id %>/booking">
+                        <button type="submit" class="btn btn-primary">Book Now!</button>
+                    </form>
 
-                <a href="/classes/<%= item.slug %>/<%= item._id %>/edit" class="btn btn-primary">Edit Class</a>
-            <% } else { %>
-                <form method="GET" action="/users/login">
-                    <button type="submit" class="btn btn-primary">Login to Book</button>
-                </form>
-            <% } %>
+                    <a href="/classes/<%= item.slug %>/<%= item._id %>/edit" class="btn btn-primary">Edit Class</a>
+                <% } else { %>
+                    <form method="GET" action="/users/login">
+                        <button type="submit" class="btn btn-primary">Login to Book</button>
+                    </form>
+                <% } %>
 
+            </div>
         </div>
-
     </div>
 
 </div>
 
-<div class="class-information">
-
-    <h4><i>Class Information</i></h4>
-    <%- include('../partials/class-information') %>
-
+<div class="information-section mt-4 mb-4">
+    <div class="class-information">
+        <h3>Class Information</h3>
+        <%- include('../partials/class-information') %>
+    </div>
 </div>
 
 <%- include('../partials/footer') %>
