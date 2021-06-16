@@ -13,7 +13,6 @@ module.exports = {
         try {
             classes = await ClassModel.find()
             
-            
             res.render('classes/index', {
                 classes: classes,
                 //to use moment() in index.ejs
@@ -23,6 +22,29 @@ module.exports = {
             res.statusCode(500)
             return 'server error'
         }
+    },
+
+    searchQuery: (req, res) => {
+        let querystring = `?day=${req.body.day}`
+        console.log(querystring)
+
+        res.redirect('/classes/search/'+ querystring)
+        
+    },
+
+    searchIndex: async (req, res) => {
+        try {
+            let searchFilter = await ClassModel.find({ startDay: req.query.day })
+
+            res.render('classes/search', {
+                searchFilter,
+                moment: moment
+            })
+        } catch (err) {
+            res.statusCode(500)
+            return 'server error'
+        }
+
     },
 
     new: async (req, res) => {

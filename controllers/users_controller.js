@@ -125,9 +125,13 @@ module.exports = {
         }
 
         try {
-            for (const eachClass of bookedClassesID) {
-               let bookedClass = await ClassModel.findOne({ _id: eachClass.class_id })
-               bookedClasses.push(bookedClass)
+            if(bookedClasses.length !== 0) {
+                for (const eachClass of bookedClassesID) {
+                let bookedClass = await ClassModel.findOne({ _id: eachClass.class_id })
+                bookedClasses.push(bookedClass)
+                }
+            } else {
+                bookedClasses = []
             }
         } catch (err) {
             console.log(err) 

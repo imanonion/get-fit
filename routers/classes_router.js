@@ -16,6 +16,12 @@ const {
 //index route
 router.get('/', classController.index);
 
+//search route
+router.post('/search', classController.searchQuery);
+
+//search route
+router.get('/search', classController.searchIndex);
+
 // new route
 router.get('/new', authenticatedOnlyMiddleware, classController.new);
 
