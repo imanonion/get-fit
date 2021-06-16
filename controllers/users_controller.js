@@ -119,7 +119,6 @@ module.exports = {
         //get classes booked by user
         try {
             bookedClassesID =  await BookingModel.find({ user_email: req.session.user.email })
-            console.log(bookedClassesID)
         } catch (err) {
             console.log(err)
             res.statusCode(500)
@@ -133,10 +132,8 @@ module.exports = {
                     bookedClasses.push(bookedClass)
                     
                 }
-                console.log(bookedClasses)
             } else {
                 bookedClasses = []
-                console.log(bookedClasses)
             }
         } catch (err) {
             console.log(err) 

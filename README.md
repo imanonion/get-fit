@@ -26,7 +26,12 @@ Pages:
 /classes/search/?day='Day' = search results,
 /users/login = login page,
 /users/register = register page,
-/classes/:slug/:id = show one class's details
+/classes/:slug/:id = show one class's details,
+/classes/:slug/:id/edit = edit one class's details,
+/classes/:slug/:id (delete) = delete a class, and delete from booking db too,
+
+
+
 
 
 Routes:

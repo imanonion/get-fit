@@ -1,7 +1,7 @@
 <%- include('../partials/header-2') %>
 
 <div class="banner">
-    <h3><i>CREATE YOUR CLASS</i></h3>
+    <h3><i>CREATE NEW CLASS</i></h3>
 </div>
 
 <% if (messages.length > 0) { %>
@@ -14,6 +14,11 @@
     </div>
 <% } %>
 
-<%- include('../partials/class-new') %>
+<div class="new-section">
+    <div class="new-form mt-3 mb-3">
+        <%- include('../partials/class-new') %>
+    </div>
+</div>
 
+ 
 <%- include('../partials/footer') %>

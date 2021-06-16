@@ -9,11 +9,16 @@
             <td><%= startTime %></td>
         </tr>
         <tr>
-            <th scope="row">Mode</th>
+            <th scope="row">Mode:</th>
             <td><%= item.mode %></td>
+            <td>Location: <%= item.location %></td>
         </tr>
         <tr>
-            <th scope="row">Type of exercise:</th>
+            <th scope="row">Genre:</th>
+            <td><%= item.genreOfExercise %></td>
+        </tr>
+        <tr>
+            <th scope="row">Type:</th>
             <td><%= item.typeOfExercise %></td>
         </tr>
         <tr>
@@ -26,12 +31,17 @@
         </tr>
         <tr>
             <td></td>
-            <td><img src="<%= item.image %>"/></td>
+            <td><img src="<%= item.image %>" alt="Class image" width=100px height="100px"/></td>
         </tr>
         <tr>
             <th scope="row">Contact:</th>
             <td><%= item.contact %> </td>
             <td><%= item.email %></td>
+        </tr>
+        <tr>
+            <th scope="row">Target Group:</th>
+            <td><%= item.minAge %> to <%= item.maxAge %> yrs old</td>
+            <td>Gender: <%= item.gender %></td>
         </tr>
     </tbody>
 </table>

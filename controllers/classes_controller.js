@@ -155,7 +155,7 @@ module.exports = {
                 startTime,
                 endDate,
                 endDay,
-                endTime
+                endTime            
             })
 
         } catch (err) {
@@ -220,15 +220,26 @@ module.exports = {
             })
     },
 
-    delete: (req, res) => {
-        ClassModel.deleteOne( { id: req.body._id })
-            .then(deleteResp => {
-                res.redirect('/classes')
-            })
-            .catch(err => {
-                console.log(err)
-                res.redirect('/classes')
-            })
+    delete: async (req, res) => {
+
+        try {
+            await BookingModel.deleteMany( { class_id: req.params.id })
+            console.log('deleted bookings')
+        } catch (err) {
+            res.statusCode(500)
+            return 'server error'
+        }
+
+        try {
+            await ClassModel.deleteOne( { _id: req.params.id })
+            console.log('deleted class')
+
+            res.redirect('/classes')
+        } catch (err) {
+            res.statusCode(500)
+            return 'server error'
+        }
+
     }
 
 }

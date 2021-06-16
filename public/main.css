@@ -42,7 +42,7 @@ p {
     margin-bottom: 0;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
     color: rgb(181,70,19);
 }
 
@@ -75,3 +75,10 @@ form, .display-classes, .banner-info, .class-information {
     text-align: left;
 }
 
+#new-form, #edit-form {
+    display: inline;
+}
+
+.accordion-item {
+    background-color: rgb(247, 247, 247);
+}

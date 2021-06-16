@@ -33,7 +33,7 @@
                 <% if (countsOfClassBooked === item.capacity) { %>
                     <button type="button" class="btn btn-primary" disabled>Sold Out</button>
                 <% } else if (user)  { %>
-                    <form method="POST" action="/classes/<%= item.slug %>/<%= item._id %>/booking">
+                    <form style="margin-bottom: 1rem;" method="POST" action="/classes/<%= item.slug %>/<%= item._id %>/booking">
                         <button type="submit" class="btn btn-primary">Book Now!</button>
                     </form>
 
