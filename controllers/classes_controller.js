@@ -26,17 +26,17 @@ module.exports = {
 
     searchQuery: (req, res) => {
         let querystring = `?day=${req.body.day}`
-        console.log(querystring)
 
         res.redirect('/classes/search/'+ querystring)
-        
     },
 
     searchIndex: async (req, res) => {
         try {
-            let searchFilter = await ClassModel.find({ startDay: req.query.day })
+            let day = req.query.day
+            let searchFilter = await ClassModel.find({ startDay: day })
 
             res.render('classes/search', {
+                day,
                 searchFilter,
                 moment: moment
             })
