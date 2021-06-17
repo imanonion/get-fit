@@ -1,5 +1,6 @@
 # get-fit
 Project 2
+=================
 
 Check it out here: https://getfit-sg.herokuapp.com/classes
 
