@@ -12,6 +12,8 @@ Some reference apps are: [ActiveSG](https://www.myactivesg.com "ActiveSG"), [Hea
 
 At the time of writing this, there is currently no API to link to government data on community exercise classes. 😔 Hence, mock data was created using Mockaroo. Hopefully, there'll be an API in future. 
 
+_________________________
+
 #### Technologies used
 - Node.js
 - Mongoose
@@ -26,8 +28,9 @@ At the time of writing this, there is currently no API to link to government dat
 - Postman
 - Heroku
 
-#### Routes
+_________________________
 
+#### Routes
 ##### Classes routes
 | No. |Route      |URL                       |HTTP Verb|Description                                       |
 |-----|-----------|--------------------------|---------|--------------------------------------------------|
@@ -52,6 +55,7 @@ At the time of writing this, there is currently no API to link to government dat
 | 5   |dashboard   |/users/dashboard|GET      |Displays user's dashboard when they are signed in|
 | 6   |logout      |/users/logout   |POST     |Logs user out of session                         |
 
+_________________________
 
 #### Lessons Learned
 - Wireframing at the beginning is a good start. Try to draw out all routes as much as possible. 
