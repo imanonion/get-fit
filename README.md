@@ -1,7 +1,7 @@
 # get-fit
 ## Project 2
 
- 💪 Check it out here: https://getfit-sg.herokuapp.com/classes
+ 💪  Check it out here: https://getfit-sg.herokuapp.com/classes
 
 #### Introduction
 Get Fit is a platform that aims to consolidate and display all exercise classes in Singapore. 
@@ -35,12 +35,19 @@ At the time of writing this, there is currently no API to link to government dat
 /classes/:slug/:id/edit = edit one class's details,  
 /classes/:slug/:id (delete) = delete a class, and delete from booking db too,  
 /users/dashboard = show user's dashboard
-
-| Tables   |      Are      |  Cool |
-|----------|:-------------:|------:|
-| col 1 is |  left-aligned | $1600 |
-| col 2 is |    centered   |   $12 |
-| col 3 is | right-aligned |    $1 |
+##### Classes routes
+| No. |Route      |URL                       |HTTP Verb|Description                                       |
+|-----|-----------|--------------------------|---------|--------------------------------------------------|
+| 1   |index      |/classes                  |GET      |Landing page, displays all classes                |
+| 2   |searchQuery|/classes/search           |POST     |Send search query                                 |
+| 3   |searchIndex|/classes/search           |GET      |Display search results                            |
+| 4   |new        |/classes/new              |GET      |Form to create new class                          |
+| 5   |create     |/classes                  |POST     |Create new class and add to classes collection    |
+| 6   |show       |/classes/:slug/:id        |GET      |Display one class's info                          |
+| 7   |edit       |/classes/:slug/:id/edit   |GET      |Form to edit class information                    |
+| 8   |update     |/classes/:slug/:id        |PATCH    |Update class information after edit               |
+| 9   |delete     |/classes/:slug/:id        |DELETE   |Delete class from classes and bookings collections|
+| 10  |bookClass  |/classes/:slug/:id/booking|POST     |Add booking to dashboard and bookings collection  |
 
 #### Lessons Learned
 - Wireframing at the beginning is a good start. Try to draw out all routes as much as possible. 
