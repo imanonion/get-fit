@@ -82,3 +82,11 @@ form, .display-classes, .banner-info, .class-information {
 .accordion-item {
     background-color: rgb(247, 247, 247);
 }
+
+.dashboard-profile {
+    background-color: rgb(255, 214, 174);
+}
+
+.dashboard-booked {
+    border-right: double 5px lightgrey;
+}

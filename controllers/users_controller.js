@@ -144,17 +144,25 @@ module.exports = {
         //get username to display in dashboard
         try {
             userProfile = await UserModel.findOne({ email: req.session.user.email })
+            let joinDate = moment(userProfile.created_at).format('DD MMM YYYY')
+
+            let noOfBookedClasses = bookedClassesID.length
+            let noOfOrganisedClasses = organisedClasses.length
+
+            res.render('users/dashboard', {
+                organisedClasses: organisedClasses,
+                bookedClasses: bookedClasses,
+                userProfile: userProfile,
+                joinDate,
+                noOfBookedClasses,
+                noOfOrganisedClasses,
+                moment: moment
+            })
+
         } catch (err) {
             res.statusCode(500)
             return 'server error'
         }
-                
-        res.render('users/dashboard', {
-            organisedClasses: organisedClasses,
-            bookedClasses: bookedClasses,
-            userProfile: userProfile,
-            moment: moment
-        })
 
     },
 

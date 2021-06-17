@@ -29,6 +29,7 @@ Pages:
 /classes/:slug/:id = show one class's details,
 /classes/:slug/:id/edit = edit one class's details,
 /classes/:slug/:id (delete) = delete a class, and delete from booking db too,
+/users/dashboard = show user's dashboard
 
 
 
@@ -44,3 +45,4 @@ Unsolved problems:
 2. Addition of image from user's local storage
 3. Get datetime to display automatically in Edit form
 4. Add google location map to suggest "classes near you"
+5. Split Booked section in Dashboard into 2 --> Upcoming classes & Completed classes

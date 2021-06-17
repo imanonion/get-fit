@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        
+        <!-- link CSS file from partial folder -->
+        <link rel="stylesheet" href="/main.css">
+
+        <title>Get Fit!</title>
+    </head>
+
+    <body>
+
+      <header>
+        <!-- <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+          <a class="navbar-brand" href="/classes">
+            <img src="/getfit_logo.png" alt="Get Fit Logo" width="110" height="92"/>
+          </a>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/classes" style="color: indianred; font-size: large;">Show All</a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+
+            <% if (user)  { %>
+
+              <a href="/classes/new"><button class="btn btn-outline-success me-2" type="button">Create New Class</button></a>
+              <form method="POST" action="/users/logout">
+                <button type="submit" class="btn btn-outline-success me-2">Logout</button>
+              </form>
+
+            <% } else { %>
+
+              <a href="/users/login"><button class="btn btn-outline-success me-2" type="button">Login</button></a>
+              <a href="/classes/new"><button class="btn btn-outline-success me-2" type="button">Create New Class</button></a>
+
+            <% } %>
+              
+          </div>
+        </nav>
+      </header>
+
+
+
