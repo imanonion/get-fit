@@ -62,10 +62,11 @@ _________________________
 - Styling of the pages can be done at the end..get the functionalities right first.
 
 #### Unsolved problems
-1. Get datetime to display automatically in Edit form
+1. Get datetime and description to display automatically in Edit form
 
 #### Future Enhancements
-1. Search filter with multiple queries in Index/Home page
-2. Addition of image from user's local storage
-3. Add google location map to suggest "classes near you"
-4. Split Booked section in Dashboard into 2 --> Upcoming classes & Completed classes
+1. Add more validations!!!
+2. Search filter with multiple queries in Index/Home page
+3. Addition of image from user's local storage
+4. Add google location map to suggest "classes near you"
+5. Split Booked section in Dashboard into 2 --> Upcoming classes & Completed classes
