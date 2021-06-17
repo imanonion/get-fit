@@ -27,14 +27,7 @@ At the time of writing this, there is currently no API to link to government dat
 - Heroku
 
 #### Routes
-/classes = homepage,  
-/classes/search/?day='Day' = search results,  
-/users/login = login page,  
-/users/register = register page,  
-/classes/:slug/:id = show one class's details,  
-/classes/:slug/:id/edit = edit one class's details,  
-/classes/:slug/:id (delete) = delete a class, and delete from booking db too,  
-/users/dashboard = show user's dashboard
+
 ##### Classes routes
 | No. |Route      |URL                       |HTTP Verb|Description                                       |
 |-----|-----------|--------------------------|---------|--------------------------------------------------|
@@ -49,15 +42,23 @@ At the time of writing this, there is currently no API to link to government dat
 | 9   |delete     |/classes/:slug/:id        |DELETE   |Delete class from classes and bookings collections|
 | 10  |bookClass  |/classes/:slug/:id/booking|POST     |Add booking to dashboard and bookings collection  |
 
+##### Users routes
+| No. |Route       |URL             |HTTP Verb|Description                                      |
+|-----|------------|----------------|---------|-------------------------------------------------|
+| 1   |registerForm|/users/register |GET      |Display Register user account form               |
+| 2   |registerUser|/users/register |POST     |Add user to users collection                     |
+| 3   |loginForm   |/users/login    |GET      |Display Login form                               |
+| 4   |loginUser   |/users/login    |POST     |Authenticate user                                |
+| 5   |dashboard   |/users/dashboard|GET      |Displays user's dashboard when they are signed in|
+| 6   |logout      |/users/logout   |POST     |Logs user out of session                         |
+
+
 #### Lessons Learned
 - Wireframing at the beginning is a good start. Try to draw out all routes as much as possible. 
 - Styling of the pages can be done at the end..get the functionalities right first.
-- 
-
 
 #### Unsolved problems
 1. Get datetime to display automatically in Edit form
-
 
 #### Future Enhancements
 1. Search filter with multiple queries in Index/Home page
