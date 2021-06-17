@@ -66,7 +66,8 @@ _________________________
 
 #### Future Enhancements
 1. Add more validations!!!
-2. Search filter with multiple queries in Index/Home page
-3. Addition of image from user's local storage
-4. Add google location map to suggest "classes near you"
-5. Split Booked section in Dashboard into 2 --> Upcoming classes & Completed classes
+2. Add contact form in footer
+3. Search filter with multiple queries in Index/Home page
+4. Addition of image from user's local storage
+5. Add google location map to suggest "classes near you"
+6. Split Booked section in Dashboard into 2 --> Upcoming classes & Completed classes
