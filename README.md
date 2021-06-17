@@ -64,15 +64,14 @@ _________________________
 - Wireframing at the beginning is a good start. Try to draw out all routes as much as possible. 
 - Styling of the pages can be done at the end..get the functionalities right first.
 
-#### Unsolved problems
-1. Get datetime and description to display automatically in Edit form
-2. Only  allow organiser to edit/delete the activity from classes collection
-3. Disallow "Book Now" button after user has booked the class once
-
-#### Future Enhancements
-1. Add more validations!!!
+#### Improvements & Future Enhancements
+1. Add validations!!!
 2. Add contact form in footer
 3. Search filter with multiple queries in Index/Home page
 4. Addition of image from user's local storage
 5. Add google location map to suggest "classes near you"
 6. Split Booked section in Dashboard into 2 --> Upcoming classes & Completed classes
+7. Only  allow organiser to edit/delete the activity from classes collection
+8. Disallow "Book Now" button after user has booked the class once
+9. Allow participant to Delete booking
+10. Get datetime and description to display automatically in Edit form
