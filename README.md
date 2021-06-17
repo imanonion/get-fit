@@ -66,6 +66,8 @@ _________________________
 
 #### Unsolved problems
 1. Get datetime and description to display automatically in Edit form
+2. Only  allow organiser to edit/delete the activity from classes collection
+3. Disallow "Book Now" button after user has booked the class once
 
 #### Future Enhancements
 1. Add more validations!!!
