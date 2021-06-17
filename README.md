@@ -1,4 +1,7 @@
 # get-fit
+
+<img src="https://github.com/imanonion/get-fit/blob/cb7d0e273cf7772e427a841d91343ff1fe5f584f/public/getfit_logo.png" align="right" alt="Get Fit logo" width="120" height="178">
+
 ## Project 2
 
  💪  Check it out here: https://getfit-sg.herokuapp.com/classes
