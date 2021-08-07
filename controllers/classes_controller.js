@@ -19,29 +19,36 @@ module.exports = {
                 moment: moment 
             })
         } catch (err) {
-            res.statusCode(500)
+            res.statusCode = 500
             return 'server error'
         }
     },
 
     searchQuery: (req, res) => {
-        let querystring = `?day=${req.body.day}`
+        let querystring = `?day=${req.body.day}&price=${req.body.price}`
 
         res.redirect('/classes/search/'+ querystring)
     },
 
     searchIndex: async (req, res) => {
-        //if no day was chosen, then redirect to homepage
-        if (req.query.day === 'undefined') {
-            await req.flash('error', 'Please fill in Name of Class')
-            res.redirect('/classes')
-
-            return
-        }
 
         try {
-            let day = req.query.day
-            let searchFilter = await ClassModel.find({ startDay: day })
+
+            let searchDB = {}
+            let day = ''
+
+            if (req.query.day !== 'undefined') {
+                searchDB.startDay = req.query.day
+                day = req.query.day
+            }
+            if (req.query.price !== 'undefined') {
+                searchDB.price = { $lte: parseInt(req.query.price) }
+            }
+
+            console.log(searchDB)
+
+            let searchFilter = await ClassModel.find(searchDB)
+            console.log(searchFilter)
 
             res.render('classes/search', {
                 day,
@@ -49,7 +56,8 @@ module.exports = {
                 moment: moment
             })
         } catch (err) {
-            res.statusCode(500)
+            console.log(err)
+            res.statusCode = 500
             return 'server error'
         }
 
