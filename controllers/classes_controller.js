@@ -141,7 +141,7 @@ module.exports = {
            countsOfClassBooked = await BookingModel.countDocuments({ class_id: req.params.id })
         } catch (err) {
             console.log(err)
-            res.statusCode(500)
+            res.statusCode = 500
             return 'server error'
         }
 
@@ -234,7 +234,7 @@ module.exports = {
             await BookingModel.deleteMany( { class_id: req.params.id })
             console.log('deleted bookings')
         } catch (err) {
-            res.statusCode(500)
+            res.statusCode = 500
             return 'server error'
         }
 
@@ -244,7 +244,7 @@ module.exports = {
 
             res.redirect('/classes')
         } catch (err) {
-            res.statusCode(500)
+            res.statusCode = 500
             return 'server error'
         }
 
