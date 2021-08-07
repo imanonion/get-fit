@@ -9,7 +9,7 @@
 #### Introduction
 Get Fit is a platform that aims to consolidate and display all exercise classes in Singapore. 
 
-This app was inspired by my dad, who swears by the free or super low-cost exercise sessions run by the govt. He has always had to go through multiple apps to find activities to join. Many times, he booked so many activities on different apps that he forgot where to find his booking.😕 
+This app was inspired by my dad, who swears by the free or super low-cost exercise sessions run by the govt. He has always had to go through multiple apps to find activities to join. Many times, he booked so many activities on different apps that he forgot where to find his bookings.😕 
 
 Some reference apps are: [ActiveSG](https://www.myactivesg.com "ActiveSG"), [Healthy365](https://www.activate.sg/healthy-365-app "Healthy365"), [pa.gov.sg](https://www.pa.gov.sg "PA")
 
